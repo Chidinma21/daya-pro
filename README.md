@@ -66,6 +66,23 @@ const completedDeposits = await daya.deposits.listCompleted({
   from: "2026-05-01",
   limit: 20,
 });
+
+const withdrawalOptions = await daya.withdrawals.listOnchainOptions();
+
+const onchainWithdrawal = await daya.withdrawals.withdrawOnchain({
+  idempotency_key: "onchain-wd-001",
+  asset: "USDT",
+  amount: "25.505555",
+  blockchain: "polygon",
+  to_address: "0x1234567890abcdef",
+});
+
+const bankWithdrawal = await daya.withdrawals.withdrawToBank({
+  idempotency_key: "bank-wd-001",
+  amount: "1000000.00",
+  currency: "NGN",
+  bank_account_id: "saved-beneficiary-id",
+});
 ```
 
 Markets endpoints are public. Account and order-reading endpoints require Read scope. Quoting, placing, replacing, and cancelling orders require Trade scope.

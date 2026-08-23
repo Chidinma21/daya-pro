@@ -4,10 +4,10 @@ export interface DepositChainAddress {
   blockchain: string;
   blockchain_name: string;
   icon: string;
-  contract_address: string;
+  contract_address?: string;
   decimals: number;
   deposit_address: string;
-  qr_code_url: string;
+  qr_code_url?: string;
   fee_amount: string;
   fee_asset: string;
 }
@@ -34,8 +34,8 @@ export interface CompletedDeposit {
   currency: "NGN";
   payment_provider: string;
   provider_transaction_id: string;
-  tx_ref: string;
-  originator_name: string;
+  tx_ref?: string;
+  originator_name?: string;
   matching_reference: string;
   reference: string;
   narration: string;

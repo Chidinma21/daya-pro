@@ -56,3 +56,16 @@ export type {
 export { Trades } from "./trades";
 export type { ListTradesOptions, Trade } from "./trades";
 export type { DayaApiErrorBody, DayaApiResponse, DayaProConfig } from "./types";
+export { Withdrawals } from "./withdrawals";
+export type {
+  BankWithdrawal,
+  InlineBankWithdrawalInput,
+  OnchainWithdrawal,
+  OnchainWithdrawalAsset,
+  OnchainWithdrawalChain,
+  OnchainWithdrawalOptions,
+  SavedBankWithdrawalInput,
+  WithdrawalStatus,
+  WithdrawOnchainInput,
+  WithdrawToBankInput,
+} from "./withdrawals";
