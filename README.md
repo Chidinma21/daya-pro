@@ -5,7 +5,7 @@
 
 A lightweight TypeScript and Node.js SDK for the [Daya Pro trading API](https://docs.daya.co/pro/overview). Access markets, accounts, orders, trades, deposits, withdrawals, and webhooks with fully typed ESM and CommonJS support.
 
-[Documentation](https://docs.daya.co/pro/overview) · [Source code](https://github.com/Chidinma21/daya-pro) · [Report an issue](https://github.com/Chidinma21/daya-pro/issues)
+[Documentation](https://docs.daya.co/pro/overview)
 
 ## API coverage
 
