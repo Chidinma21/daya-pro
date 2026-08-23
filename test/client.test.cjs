@@ -1,12 +1,16 @@
 const assert = require("node:assert/strict");
 
-const { DayaPro, DayaProError, DEFAULT_BASE_URL } = require("../dist/index.cjs");
+const {
+  DayaPro,
+  DayaProError,
+  DEFAULT_BASE_URL,
+} = require("../dist/index.cjs");
 
 function jsonResponse(body, status = 200) {
   return {
     ok: status >= 200 && status < 300,
     status,
-    text: async () => JSON.stringify(body)
+    text: async () => JSON.stringify(body),
   };
 }
 
@@ -19,9 +23,9 @@ async function testPublicRequest() {
         success: true,
         message: "Markets retrieved successfully",
         data: [{ symbol: "USDT-NGN" }],
-        timestamp: "2024-01-15T10:30:00Z"
+        timestamp: "2024-01-15T10:30:00Z",
       });
-    }
+    },
   });
 
   const data = await sdk.client.request("markets", { authenticated: false });
@@ -40,9 +44,9 @@ async function testAuthenticatedRequest() {
         success: true,
         message: "OK",
         data: { id: "order-1" },
-        timestamp: "2024-01-15T10:30:00Z"
+        timestamp: "2024-01-15T10:30:00Z",
       });
-    }
+    },
   });
 
   await sdk.client.request("orders", { method: "POST", body: { side: "buy" } });
@@ -55,16 +59,26 @@ async function testAuthenticatedRequest() {
 async function testApiError() {
   const sdk = new DayaPro({
     apiKey: "daya_sk_test",
-    fetch: async () => jsonResponse({
-      success: false,
-      message: "Unauthorized",
-      error: { code: "API_KEY_INVALID", message: "Invalid or missing API key" }
-    }, 401)
+    fetch: async () =>
+      jsonResponse(
+        {
+          success: false,
+          message: "Unauthorized",
+          error: {
+            code: "API_KEY_INVALID",
+            message: "Invalid or missing API key",
+          },
+        },
+        401,
+      ),
   });
 
   await assert.rejects(
     sdk.client.request("orders"),
-    (error) => error instanceof DayaProError && error.status === 401 && error.code === "API_KEY_INVALID"
+    (error) =>
+      error instanceof DayaProError &&
+      error.status === 401 &&
+      error.code === "API_KEY_INVALID",
   );
 }
 

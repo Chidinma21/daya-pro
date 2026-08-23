@@ -35,7 +35,9 @@ export class HttpClient {
     this.fetcher = config.fetch ?? globalThis.fetch;
 
     if (!this.fetcher) {
-      throw new Error("Daya Pro requires Node.js 18+ or a custom fetch implementation.");
+      throw new Error(
+        "Daya Pro requires Node.js 18+ or a custom fetch implementation.",
+      );
     }
   }
 
@@ -59,18 +61,22 @@ export class HttpClient {
     const response = await this.fetcher(url, {
       ...init,
       headers,
-      ...(body === undefined ? {} : { body: JSON.stringify(body) })
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
     });
 
     const text = await response.text();
-    const payload = text ? (JSON.parse(text) as DayaApiResponse<T> | DayaApiErrorBody) : undefined;
+    const payload = text
+      ? (JSON.parse(text) as DayaApiResponse<T> | DayaApiErrorBody)
+      : undefined;
 
     if (!response.ok || payload?.success === false) {
       const errorBody = payload as DayaApiErrorBody | undefined;
       throw new DayaProError(
-        errorBody?.error?.message ?? errorBody?.message ?? `Daya Pro request failed with status ${response.status}`,
+        errorBody?.error?.message ??
+          errorBody?.message ??
+          `Daya Pro request failed with status ${response.status}`,
         response.status,
-        errorBody
+        errorBody,
       );
     }
 

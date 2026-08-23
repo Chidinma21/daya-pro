@@ -1,3 +1,10 @@
+export { Account } from "./account";
+export type {
+  AccountDetails,
+  AccountStatus,
+  Balance,
+  Balances,
+} from "./account";
 export { DEFAULT_BASE_URL } from "./constants";
 export { DayaPro } from "./daya-pro";
 export { DayaProError } from "./error";
@@ -13,6 +20,6 @@ export type {
   MarketTradeSide,
   Orderbook,
   OrderbookLevel,
-  OrderbookStats
+  OrderbookStats,
 } from "./markets";
 export type { DayaApiErrorBody, DayaApiResponse, DayaProConfig } from "./types";

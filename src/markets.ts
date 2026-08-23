@@ -74,31 +74,49 @@ export class Markets {
 
   /** Retrieve one market by trading-pair symbol. */
   get(symbol: MarketSymbol): Promise<Market> {
-    return this.client.request<Market>(`markets/${encodeURIComponent(symbol)}`, {
-      authenticated: false
-    });
+    return this.client.request<Market>(
+      `markets/${encodeURIComponent(symbol)}`,
+      {
+        authenticated: false,
+      },
+    );
   }
 
   /** Retrieve the current market depth for a trading pair. */
-  getOrderbook(symbol: MarketSymbol, options: GetOrderbookOptions = {}): Promise<Orderbook> {
-    return this.client.request<Orderbook>(`orderbook/${encodeURIComponent(symbol)}`, {
-      authenticated: false,
-      query: { depth: options.depth }
-    });
+  getOrderbook(
+    symbol: MarketSymbol,
+    options: GetOrderbookOptions = {},
+  ): Promise<Orderbook> {
+    return this.client.request<Orderbook>(
+      `orderbook/${encodeURIComponent(symbol)}`,
+      {
+        authenticated: false,
+        query: { depth: options.depth },
+      },
+    );
   }
 
   /** Retrieve the most recent trade price and 24-hour percentage change. */
   getLastPrice(symbol: MarketSymbol): Promise<LastPrice> {
-    return this.client.request<LastPrice>(`last-price/${encodeURIComponent(symbol)}`, {
-      authenticated: false
-    });
+    return this.client.request<LastPrice>(
+      `last-price/${encodeURIComponent(symbol)}`,
+      {
+        authenticated: false,
+      },
+    );
   }
 
   /** Retrieve recent anonymous, market-wide trades in reverse chronological order. */
-  listTrades(symbol: MarketSymbol, options: ListMarketTradesOptions = {}): Promise<MarketTrade[]> {
-    return this.client.request<MarketTrade[]>(`market-trades/${encodeURIComponent(symbol)}`, {
-      authenticated: false,
-      query: { limit: options.limit }
-    });
+  listTrades(
+    symbol: MarketSymbol,
+    options: ListMarketTradesOptions = {},
+  ): Promise<MarketTrade[]> {
+    return this.client.request<MarketTrade[]>(
+      `market-trades/${encodeURIComponent(symbol)}`,
+      {
+        authenticated: false,
+        query: { limit: options.limit },
+      },
+    );
   }
 }
