@@ -41,6 +41,8 @@ export type {
   OrderStatus,
   OrderType,
   PlaceOrderInput,
-  ReplaceOrderInput
+  ReplaceOrderInput,
 } from "./orders";
+export { Trades } from "./trades";
+export type { ListTradesOptions, Trade } from "./trades";
 export type { DayaApiErrorBody, DayaApiResponse, DayaProConfig } from "./types";
