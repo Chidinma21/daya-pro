@@ -83,9 +83,24 @@ const bankWithdrawal = await daya.withdrawals.withdrawToBank({
   currency: "NGN",
   bank_account_id: "saved-beneficiary-id",
 });
+
+const webhook = await daya.webhooks.create({
+  url: "https://example.com/webhooks/daya",
+  events: ["order.filled", "trade.executed"],
+  description: "Trading notifications",
+});
+
+// Save this securely. It is only returned when created or rotated.
+const webhookSecret = webhook.secret;
+
+const webhooks = await daya.webhooks.list();
+const deliveryLogs = await daya.webhooks.listDeliveries(webhook.id, {
+  limit: 20,
+});
 ```
 
 Markets endpoints are public. Account and order-reading endpoints require Read scope. Quoting, placing, replacing, and cancelling orders require Trade scope.
+Withdrawal endpoints require Trade scope. Webhook management requires Write scope.
 
 ## Development
 

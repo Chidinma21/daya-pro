@@ -56,6 +56,18 @@ export type {
 export { Trades } from "./trades";
 export type { ListTradesOptions, Trade } from "./trades";
 export type { DayaApiErrorBody, DayaApiResponse, DayaProConfig } from "./types";
+export { Webhooks } from "./webhooks";
+export type {
+  CreateWebhookInput,
+  ListWebhookDeliveriesOptions,
+  UpdateWebhookInput,
+  Webhook,
+  WebhookDelivery,
+  WebhookDeliveryStatus,
+  WebhookEvent,
+  WebhookStatus,
+  WebhookWithSecret,
+} from "./webhooks";
 export { Withdrawals } from "./withdrawals";
 export type {
   BankWithdrawal,

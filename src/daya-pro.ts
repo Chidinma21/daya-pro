@@ -6,6 +6,7 @@ import { Markets } from "./markets";
 import { Orders } from "./orders";
 import { Trades } from "./trades";
 import type { DayaProConfig } from "./types";
+import { Webhooks } from "./webhooks";
 import { Withdrawals } from "./withdrawals";
 
 export class DayaPro {
@@ -16,6 +17,7 @@ export class DayaPro {
   readonly trades: Trades;
   readonly deposits: Deposits;
   readonly withdrawals: Withdrawals;
+  readonly webhooks: Webhooks;
 
   constructor(config: DayaProConfig = {}) {
     this.client = new HttpClient({
@@ -28,5 +30,6 @@ export class DayaPro {
     this.trades = new Trades(this.client);
     this.deposits = new Deposits(this.client);
     this.withdrawals = new Withdrawals(this.client);
+    this.webhooks = new Webhooks(this.client);
   }
 }
