@@ -1,7 +1,15 @@
 {
   "name": "daya-pro",
   "version": "0.1.0",
-  "description": "TypeScript SDK for the Daya Pro API",
+  "description": "TypeScript SDK for the Daya Pro trading API, including markets, accounts, orders, trades, deposits, withdrawals, and webhooks",
+  "homepage": "https://docs.daya.co/pro/overview",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chidinma21/daya-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chidinma21/daya-pro/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -27,8 +35,14 @@
   "keywords": [
     "daya",
     "daya-pro",
-    "trading",
-    "sdk"
+    "daya-api",
+    "typescript-sdk",
+    "trading-api",
+    "crypto-trading",
+    "fintech",
+    "orders",
+    "markets",
+    "webhooks"
   ],
   "license": "UNLICENSED",
   "engines": {

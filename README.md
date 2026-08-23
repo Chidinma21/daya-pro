@@ -1,12 +1,27 @@
-# Daya Pro
+# Daya Pro TypeScript SDK
 
-A small TypeScript SDK for the [Daya Pro API](https://docs.daya.co/pro/overview).
+[![npm version](https://img.shields.io/npm/v/daya-pro.svg)](https://www.npmjs.com/package/daya-pro)
+[![npm downloads](https://img.shields.io/npm/dm/daya-pro.svg)](https://www.npmjs.com/package/daya-pro)
+
+A lightweight TypeScript and Node.js SDK for the [Daya Pro trading API](https://docs.daya.co/pro/overview). Access markets, accounts, orders, trades, deposits, withdrawals, and webhooks with fully typed ESM and CommonJS support.
+
+[Documentation](https://docs.daya.co/pro/overview) · [Source code](https://github.com/Chidinma21/daya-pro) · [Report an issue](https://github.com/Chidinma21/daya-pro/issues)
+
+## API coverage
+
+- Markets: market data, order books, prices, and recent trades
+- Account: account details and balances
+- Orders: quotes, placement, active orders, history, replacement, and cancellation
+- Trades: trade history and order fills
+- Deposits: crypto addresses and completed deposits
+- Withdrawals: on-chain and Nigerian bank withdrawals
+- Webhooks: endpoint management, secret rotation, and delivery logs
 
 ## Requirements
 
 - Node.js 18 or newer
 
-## Install
+## Installation
 
 ```bash
 npm install daya-pro
