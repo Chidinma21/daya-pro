@@ -60,6 +60,12 @@ await daya.orders.cancel(replacement.id);
 const trades = await daya.trades.list({ symbol: "USDT-NGN", limit: 20 });
 const trade = await daya.trades.get(trades[0].id);
 const orderTrades = await daya.trades.listForOrder(placedOrder.order_id);
+
+const depositAddresses = await daya.deposits.listAddresses();
+const completedDeposits = await daya.deposits.listCompleted({
+  from: "2026-05-01",
+  limit: 20,
+});
 ```
 
 Markets endpoints are public. Account and order-reading endpoints require Read scope. Quoting, placing, replacing, and cancelling orders require Trade scope.

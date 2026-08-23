@@ -6,6 +6,16 @@ export type {
   Balances,
 } from "./account";
 export { DEFAULT_BASE_URL } from "./constants";
+export { Deposits } from "./deposits";
+export type {
+  CompletedDeposit,
+  CompletedDeposits,
+  DepositAddresses,
+  DepositAsset,
+  DepositChainAddress,
+  DepositPagination,
+  ListCompletedDepositsOptions,
+} from "./deposits";
 export { DayaPro } from "./daya-pro";
 export { DayaProError } from "./error";
 export { Markets } from "./markets";

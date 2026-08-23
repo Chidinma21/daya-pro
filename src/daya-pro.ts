@@ -1,5 +1,6 @@
 import { Account } from "./account";
 import { DEFAULT_BASE_URL } from "./constants";
+import { Deposits } from "./deposits";
 import { HttpClient } from "./http-client";
 import { Markets } from "./markets";
 import { Orders } from "./orders";
@@ -12,6 +13,7 @@ export class DayaPro {
   readonly account: Account;
   readonly orders: Orders;
   readonly trades: Trades;
+  readonly deposits: Deposits;
 
   constructor(config: DayaProConfig = {}) {
     this.client = new HttpClient({
@@ -22,5 +24,6 @@ export class DayaPro {
     this.account = new Account(this.client);
     this.orders = new Orders(this.client);
     this.trades = new Trades(this.client);
+    this.deposits = new Deposits(this.client);
   }
 }

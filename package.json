@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean",
     "typecheck": "tsc --noEmit",
-    "test": "npm run build && node test/client.test.cjs && node test/markets.test.cjs && node test/account.test.cjs && node test/orders.test.cjs && node test/trades.test.cjs",
+    "test": "npm run build && node test/client.test.cjs && node test/markets.test.cjs && node test/account.test.cjs && node test/orders.test.cjs && node test/trades.test.cjs && node test/deposits.test.cjs",
     "check": "npm run typecheck && npm test",
     "prepublishOnly": "npm run check"
   },
