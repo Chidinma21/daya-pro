@@ -30,9 +30,35 @@ const recentTrades = await daya.markets.listTrades("USDT-NGN", { limit: 20 });
 const account = await daya.account.get();
 const balances = await daya.account.getBalances();
 const usdBalance = await daya.account.getBalance("USD");
+
+const quote = await daya.orders.quote({
+  symbol: "USDT-NGN",
+  side: "buy",
+  type: "market",
+  quantity: "100.00",
+});
+
+const placedOrder = await daya.orders.place({
+  symbol: "USDT-NGN",
+  side: "buy",
+  type: "limit",
+  price: "1545.00",
+  quantity: "100.00",
+});
+
+const activeOrders = await daya.orders.listActive({ symbol: "USDT-NGN" });
+const orderHistory = await daya.orders.history({ status: "filled", limit: 20 });
+const order = await daya.orders.get(placedOrder.order_id);
+const replacement = await daya.orders.replace(order.id, {
+  side: "buy",
+  type: "limit",
+  price: "1550.00",
+  quantity: "120.00",
+});
+await daya.orders.cancel(replacement.id);
 ```
 
-Markets endpoints are public. Account endpoints require an API key with Read scope.
+Markets endpoints are public. Account and order-reading endpoints require Read scope. Quoting, placing, replacing, and cancelling orders require Trade scope.
 
 ## Development
 

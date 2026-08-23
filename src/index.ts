@@ -22,4 +22,25 @@ export type {
   OrderbookLevel,
   OrderbookStats,
 } from "./markets";
+export { Orders } from "./orders";
+export type {
+  ActiveOrderStatus,
+  HistoricalOrderStatus,
+  LimitOrderInput,
+  LimitReplacementInput,
+  ListActiveOrdersOptions,
+  MarketOrderInput,
+  MarketReplacementInput,
+  Order,
+  OrderHistory,
+  OrderHistoryOptions,
+  OrderPlacement,
+  OrderQuote,
+  OrderQuoteInput,
+  OrderSide,
+  OrderStatus,
+  OrderType,
+  PlaceOrderInput,
+  ReplaceOrderInput
+} from "./orders";
 export type { DayaApiErrorBody, DayaApiResponse, DayaProConfig } from "./types";
